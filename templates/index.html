@@ -58,18 +58,18 @@ select option{background:var(--input-bg);color:var(--text)}
 <div class="header">
 <div class="badge">Premium Bypass</div>
 <h1 class="title">BYPASS TOOL</h1>
-<p class="subtitle">Tự động vượt link rút gọn siêu nhanh</p>
+<p class="subtitle">Hỗ trợ 20+ dịch vụ rút gọn link</p>
 </div>
 
 <label class="label">Chọn dịch vụ</label>
 <select id="serviceSelect">
-<option value="">-- Chọn dịch vụ cần vượt --</option>
+<option value="">-- Chọn dịch vụ --</option>
 {% for s in services %}
 <option value="{{ s }}">{{ s }}</option>
 {% endfor %}
 </select>
 
-<label class="label">Dán link rút gọn</label>
+<label class="label">Dán link</label>
 <input type="text" id="urlInput" class="input-url" placeholder="https://...">
 
 <button class="btn" id="btnBypass" onclick="doBypass()">VƯỢT LINK</button>
@@ -82,7 +82,7 @@ select option{background:var(--input-bg);color:var(--text)}
 <button class="copy-btn" onclick="copyLink()">COPY LINK</button>
 </div>
 
-<div class="footer">Powered by <span>ANHKHOA System</span> - v3.0</div>
+<div class="footer">Powered by <span>ANHKHOA System</span> - v4.0</div>
 </div>
 </div>
 
@@ -107,20 +107,14 @@ async function doBypass(){
 
     if(!url){
         msg.className = "msg err";
-        msg.textContent = "Vui lòng dán link cần vượt!";
-        return;
-    }
-
-    if(!url.startsWith("http")){
-        msg.className = "msg err";
-        msg.textContent = "Link phải bắt đầu bằng http:// hoặc https://";
+        msg.textContent = "Vui lòng dán link!";
         return;
     }
 
     btn.disabled = true;
     btn.innerHTML = '<span class="spinner"></span> Đang xử lý...';
     msg.className = "msg loading";
-    msg.textContent = "Đang bypass, vui lòng đợi 5-30 giây...";
+    msg.textContent = "Đang bypass, vui lòng đợi...";
     result.classList.remove("show");
 
     try{
@@ -142,7 +136,7 @@ async function doBypass(){
         }
     } catch(e){
         msg.className = "msg err";
-        msg.textContent = "Lỗi kết nối: " + e.message;
+        msg.textContent = "Lỗi: " + e.message;
     } finally {
         btn.disabled = false;
         btn.innerHTML = "VƯỢT LINK";
