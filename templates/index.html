@@ -49,8 +49,6 @@ select option{background:var(--input-bg);color:var(--text)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .footer{text-align:center;margin-top:20px;font-size:.7rem;color:var(--muted);letter-spacing:1px}
 .footer span{color:var(--cyan)}
-.services-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:15px;justify-content:center}
-.service-tag{padding:4px 10px;background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.15);border-radius:100px;font-size:.65rem;color:var(--muted);letter-spacing:.5px}
 </style>
 </head>
 <body>
@@ -84,7 +82,7 @@ select option{background:var(--input-bg);color:var(--text)}
 <button class="copy-btn" onclick="copyLink()">COPY LINK</button>
 </div>
 
-<div class="footer">Powered by <span>bypass.vip API</span> - v2.0</div>
+<div class="footer">Powered by <span>ANHKHOA System</span> - v3.0</div>
 </div>
 </div>
 
@@ -103,7 +101,6 @@ select option{background:var(--input-bg);color:var(--text)}
 
 async function doBypass(){
     var url = document.getElementById("urlInput").value.trim();
-    var service = document.getElementById("serviceSelect").value;
     var msg = document.getElementById("msg");
     var btn = document.getElementById("btnBypass");
     var result = document.getElementById("result");
@@ -123,7 +120,7 @@ async function doBypass(){
     btn.disabled = true;
     btn.innerHTML = '<span class="spinner"></span> Đang xử lý...';
     msg.className = "msg loading";
-    msg.textContent = "Đang bypass, vui lòng đợi...";
+    msg.textContent = "Đang bypass, vui lòng đợi 5-30 giây...";
     result.classList.remove("show");
 
     try{
